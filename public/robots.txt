@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+
+User-agent: Yandex
+Allow: /
+Crawl-Delay: 5
+
 Sitemap: https://jemov.github.io/sitemap.xml

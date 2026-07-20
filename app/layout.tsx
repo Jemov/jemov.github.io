@@ -37,6 +37,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  verification: {
+    google: 'siWhxVgJTWMEx8ogLMf2nWCfy_XvYNhVliq_PxxDITM',
+    yandex: '8de0564ce44b3bfc',
+  },
 }
 
 export const viewport: Viewport = {
