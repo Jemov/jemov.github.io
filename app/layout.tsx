@@ -9,10 +9,34 @@ const tiny5 = Tiny5({
   variable: '--font-tiny5',
 })
 
+const siteUrl = 'https://jemov.github.io'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'Jemov — Игры, мемы и переводы',
   description: 'Игры, мемы и переводы — всё в одном хлебном месте. Twitch, YouTube, Telegram, Boosty и русификации игр от Jemov.',
+  keywords: ['Jemov', 'джемов', 'хлебные угодья', 'игры', 'мемы', 'переводы', 'русификации', 'Twitch', 'стримы', 'BreadBredni'],
   generator: 'v0.app',
+  openGraph: {
+    title: 'Jemov — Игры, мемы и переводы',
+    description: 'Игры, мемы и переводы — всё в одном хлебном месте. Twitch, YouTube, Telegram, Boosty и русификации игр от Jemov.',
+    url: siteUrl,
+    siteName: 'Jemov',
+    locale: 'ru_RU',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jemov — Игры, мемы и переводы',
+    description: 'Игры, мемы и переводы — всё в одном хлебном месте. Twitch, YouTube, Telegram, Boosty и русификации игр от Jemov.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
 }
 
 export const viewport: Viewport = {
