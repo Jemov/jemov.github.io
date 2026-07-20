@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { Tiny5 } from 'next/font/google'
 import './globals.css'
 
@@ -54,15 +55,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={`${tiny5.variable} bg-background`}>
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+      </head>
       <body className="font-sans antialiased">
         {children}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MMQGWPD300" />
-        <script id="google-analytics" dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MMQGWPD300"
+          strategy="lazyOnload"
+        />
+        <Script id="google-analytics" strategy="lazyOnload">
+          {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-MMQGWPD300');`,
-        }} />
+gtag('config', 'G-MMQGWPD300');`}
+        </Script>
       </body>
     </html>
   )
