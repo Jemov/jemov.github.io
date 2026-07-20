@@ -1,4 +1,4 @@
-import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import type { Metadata, Viewport } from 'next'
 import { Tiny5 } from 'next/font/google'
 import './globals.css'
@@ -57,7 +57,16 @@ export default function RootLayout({
     <html lang="ru" className={`${tiny5.variable} bg-background`}>
       <body className="font-sans antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MMQGWPD300"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MMQGWPD300');`}
+        </Script>
       </body>
     </html>
   )
